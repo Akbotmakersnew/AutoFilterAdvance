@@ -12,9 +12,9 @@ def is_enabled(value, default):
 
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ.get('API_ID', '20389440'))
-API_HASH = environ.get('API_HASH', 'a1a06a18eb9153e9dbd447cfd5da2457')
-BOT_TOKEN = environ.get('BOT_TOKEN', "6564513574:AAH3Y97iqQjSlV5vKKZdGDUohlhpA-LeSbw")
+API_ID = int(environ.get('API_ID', '2157492'))
+API_HASH = environ.get('API_HASH', '8e0c7ee5dd95b625e0f9a8e39d107e0c')
+BOT_TOKEN = environ.get('BOT_TOKEN', "1996476799:AAHZ0-Jgj62SrfLSB4oO3OA-XiHANOi9vYU")
 PORT = int(environ.get('PORT', '8080'))
 
 # Bot settings
@@ -44,8 +44,8 @@ REQ_CHANNEL = int(REQ_CHANNEL) if REQ_CHANNEL and id_pattern.search(REQ_CHANNEL)
 JOIN_REQS_DB = environ.get("JOIN_REQS_DB", DATABASE_URI)
 
 # Others
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001623633000'))
-SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'VJ_Bot_Disscussion')
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001720970121'))
+SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'movie_maniac007')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "True")), False)
 IMDB = is_enabled((environ.get('IMDB', "False")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "True")), False)
