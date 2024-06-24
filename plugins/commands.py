@@ -49,22 +49,22 @@ async def start(client, message):
                     InlineKeyboardButton('𝐇𝐞𝐥𝐩', callback_data='help'),
                     InlineKeyboardButton('𝐀𝐛𝐨𝐮𝐭', callback_data='about'),
                  ]]             
-            reply_markup = InlineKeyboardMarkup(buttons)
-            m=await message.reply_sticker("CAACAgUAAxkBAAEVCkdkSzXcBZU5W6ZWdpyBGydS_9edGAACGAADcLU4MweYKTwLeaMQLwQ")
-            await asyncio.sleep(1)
-            await m.delete()
-            await message.reply_photo(
-                photo=random.choice(PICS),
-                caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
-                reply_markup=reply_markup,
-                parse_mode=enums.ParseMode.HTML
-        )
-        return
+                 reply_markup = InlineKeyboardMarkup(buttons)
+                 m=await message.reply_sticker("CAACAgUAAxkBAAEVCkdkSzXcBZU5W6ZWdpyBGydS_9edGAACGAADcLU4MweYKTwLeaMQLwQ")
+                 await asyncio.sleep(1)
+                 await m.delete()
+                 await message.reply_photo(
+                     photo=random.choice(PICS),
+                     caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+                     reply_markup=reply_markup,
+                     parse_mode=enums.ParseMode.HTML
+                 )
+                 return
         
-if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help", "start", "hehe"]:
-if message.command[1] == "subscribe":
-        await ForceSub(client, message)
-        return
+             if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help", "start", "hehe"]:
+                 if message.command[1] == "subscribe":
+                     await ForceSub(client, message)
+                     return
 
         buttons = [[
             InlineKeyboardButton('💀Owner💀', url=f'https://t.me/IAM_A_JOKER')
