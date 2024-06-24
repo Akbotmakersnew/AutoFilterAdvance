@@ -22,12 +22,12 @@ BATCH_FILES = {}
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
-        buttons = [[
-                    InlineKeyboardButton('⚚Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ⚚', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton("💀Owner💀", url="https://t.me/IAM_A_JOKER"),
-                    InlineKeyboardButton("🔴 Get more movies", url="https://t.me/Movie_Maniac007")
-               ]]
+        buttons = [
+            [
+                InlineKeyboardButton("Updates", url="https://t.me/VJ_Bots"),
+                InlineKeyboardButton("🍿 YouTube Channel 🍿", url="https://youtube.com/@Tech_VJ")
+            ]
+            ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
         await asyncio.sleep(2) # 😢 https://github.com/EvamariaTG/EvaMaria/blob/master/plugins/p_ttishow.py#L17 😬 wait a bit, before checking.
@@ -41,35 +41,31 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-                    InlineKeyboardButton('⚚Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ⚚', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('Bᴏᴛ Oᴡɴᴇʀ', url=f"https://t.me/Eldro_support"),
-                    InlineKeyboardButton('𝗙𝗔𝗧𝗛𝗘𝗥', url=f"https://t.me/IAM_A_JOKER")
-                ],[
-                    InlineKeyboardButton('𝐇𝐞𝐥𝐩', callback_data='help'),
-                    InlineKeyboardButton('𝐀𝐛𝐨𝐮𝐭', callback_data='about'),
-                 ]]             
-                 reply_markup = InlineKeyboardMarkup(buttons)
-                 m=await message.reply_sticker("CAACAgUAAxkBAAEVCkdkSzXcBZU5W6ZWdpyBGydS_9edGAACGAADcLU4MweYKTwLeaMQLwQ")
-                 await asyncio.sleep(1)
-                 await m.delete()
-                 await message.reply_photo(
-                     photo=random.choice(PICS),
-                     caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
-                     reply_markup=reply_markup,
-                     parse_mode=enums.ParseMode.HTML
-                 )
-                 return
-        
-             if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help", "start", "hehe"]:
-                 if message.command[1] == "subscribe":
-                     await ForceSub(client, message)
-                     return
+            InlineKeyboardButton('💝 Subscribe YouTube Channel 💗', url=f'http://youtube.com/@Tech_VJ')
+            ],[
+            InlineKeyboardButton('♻️ Update Channel ♻️', url=f'https://t.me/VJ_Botz')
+            ],[
+            InlineKeyboardButton('ℹ️ 𝙷𝚎𝚕𝚙', callback_data='help'),
+            InlineKeyboardButton('😊 𝙰𝚋𝚘𝚞𝚝', callback_data='about')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_photo(
+            photo=random.choice(PICS),
+            caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+        return
+
+    if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help", "start", "hehe"]:
+        if message.command[1] == "subscribe":
+            await ForceSub(client, message)
+            return
 
         buttons = [[
-            InlineKeyboardButton('💀Owner💀', url=f'https://t.me/IAM_A_JOKER')
+            InlineKeyboardButton('💝 Subscribe YouTube Channel 💗', url=f'http://youtube.com/@Tech_VJ')
             ],[
-            InlineKeyboardButton('🔴Movie Group', url=f'https://t.me/Movie_Maniac007')
+            InlineKeyboardButton('♻️ Update Channel ♻️', url=f'https://t.me/VJ_Botz')
             ],[
             InlineKeyboardButton('ℹ️ 𝙷𝚎𝚕𝚙', callback_data='help'),
             InlineKeyboardButton('😊 𝙰𝚋𝚘𝚞𝚝', callback_data='about')
@@ -135,7 +131,7 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     
-                    reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("🔴Cloned from", url="https://youtube.com/@Tech_VJ")] ] ),
+                    reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("🍿 YouTube Channel 🍿", url="https://youtube.com/@Tech_VJ")] ] ),
                     
                     protect_content=msg.get('protect', False),
                     )
@@ -232,7 +228,7 @@ async def start(client, message):
         file_id=file_id,
         caption=f_caption,
         
-        reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("🔴Cloned from", url="https://youtube.com/@Tech_VJ")] ] ),
+        reply_markup=InlineKeyboardMarkup( [ [InlineKeyboardButton("🍿 YouTube Channel 🍿", url="https://youtube.com/@Tech_VJ")] ] ),
         
         protect_content=True if pre == 'filep' else False,
         )
